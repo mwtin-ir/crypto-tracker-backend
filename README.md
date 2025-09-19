@@ -24,7 +24,7 @@
 
 ## 🔹 فایل‌ها و ساختار پروژه
 
-- src/server.ts → فایل اصلی سرور و مسیرهای API  
+- server.ts → فایل اصلی سرور و مسیرهای API  
 - package.json → مدیریت Scripts و Dependencies  
 - tsconfig.json → تنظیمات TypeScript  
 - dist/ → خروجی Build TypeScript به JavaScript  
