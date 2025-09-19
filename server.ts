@@ -15,7 +15,6 @@ import type {CryptocurrencyData}  from "./types/markets";
 
 
 
-
 const app = express();
 app.use(cors()); 
 
@@ -42,7 +41,7 @@ if (!symbol) {
 }
 
   try {
-    const resp = await axios.get("http://localhost:3120/api/markets") as { data: Market[] };
+    const resp = await axios.get("https://crypto-tracker-backend-xt56.onrender.com/api/markets") as { data: Market[] };
 
     // پیدا کردن کوین اصلی
     const current_coin = resp.data.find(coin => coin.symbol.toUpperCase() === symbol.toUpperCase());
@@ -63,7 +62,7 @@ if (!symbol) {
     const setArray = new Set(filteredRelated.map(coin => coin.symbol.toUpperCase()));
 
     // گرفتن oldMarket
-    const oldMarket = await axios.get("http://localhost:3120/api/oldmarkets") as { data: OldMarket[] };
+    const oldMarket = await axios.get("https://crypto-tracker-backend-xt56.onrender.com/api/oldmarkets") as { data: OldMarket[] };
     
     // فیلتر oldMarket فقط اونایی که مرتبط هستن
     const filteredOldMarket = oldMarket.data.filter(m => setArray.has(m.symbol.toUpperCase()));
@@ -160,7 +159,7 @@ app.get("/coin/:baseAsset" , async (req:Request,res:Response)=>{
   
   try
   {
-    const response = await axios.get("http://localhost:3120/api/oldmarkets") as {data:OldMarket[]}
+    const response = await axios.get("https://crypto-tracker-backend-xt56.onrender.com/api/oldmarkets") as {data:OldMarket[]}
     const data=response.data
     const base_asset = data.filter(coin=> coin.baseAsset===baseAsset)
 
